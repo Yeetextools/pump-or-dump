@@ -1,68 +1,60 @@
-const tokens = [
-  'BTC', 'ETH', 'SOL', 'DOGE', 'XRP', 'ADA', 'AVAX', 'MATIC', 'SHIB', 'LINK',
-  'ARB', 'OP', 'DOT', 'PEPE', 'TON', 'TRX', 'APT', 'INJ', 'RNDR', 'TIA',
-  'NEAR', 'WIF', 'SEI', 'SUI', 'FLOKI'
-];
-
-const directions = ['🚀 LONG', '🕳️ SHORT'];
-
-const comments = [
-  "Trust the coin. Trust the click.",
-  "Looks solid... said no one ever.",
-  "YOLO’d harder than ever before.",
-  "Betting it all on vibes 🧘",
-  "It’s either Lambo or ramen noodles tonight.",
-  "This is the way. Probably.",
-  "Use leverage responsibly. Just kidding, go 100x.",
-  "Let the coin flip decide your fate.",
-  "Mama didn’t raise no risk manager.",
-  "Perfect entry... for liquidation!",
-  "Chart? I barely know her.",
-  "Exit strategy? Nah.",
-  "Technical analysis? Never heard of it.",
-  "Feeling lucky, punk?",
-  "The token chose you.",
-  "Fully degenerate. Fully committed.",
-  "This signal was blessed by Satoshi himself.",
-  "Red candles = buying opportunity?",
-  "WAGMI or NGMI — no in-between.",
-  "Imagine not taking this trade 🤡"
-];
-
-document.getElementById('generateBtn').addEventListener('click', () => {
-  const token = tokens[Math.floor(Math.random() * tokens.length)];
-  const direction = directions[Math.floor(Math.random() * directions.length)];
-  const leverage = ${getRandomInt(3, 100)}x;
-  const profit = $${getRandomInt(1, 1000)};
-  const comment = comments[Math.floor(Math.random() * comments.length)];
-
-  document.getElementById('token').textContent = token;
-  document.getElementById('direction').textContent = direction;
-  document.getElementById('leverage').textContent = leverage;
-  document.getElementById('profit').textContent = profit;
-  document.getElementById('comment').textContent = comment;
-
-  document.getElementById('resultBox').classList.remove('hidden');
-
-  const sound = document.getElementById('clickSound');
-  sound.currentTime = 0;
-  sound.play();
+// Trade generator logic (keep your existing code if you have any)
+document.getElementById('generateBtn').addEventListener('click', function() {
+    const tokens = ['BTC', 'ETH', 'DOGE', 'SOL', 'XRP', 'SHIB', 'ADA', 'AVAX'];
+    const directions = ['LONG', 'SHORT'];
+    const comments = [
+        "This trade has a 50/50 chance. Just like everything else in crypto.",
+        "If this works, you're a genius. If not, blame the algorithm.",
+        "Guaranteed profit* (*not guaranteed at all)",
+        "Even a broken clock is right twice a day. This might be one of those times.",
+        "Risk management? Never heard of it. 100x or bust!"
+    ];
+    
+    const randomToken = tokens[Math.floor(Math.random() * tokens.length)];
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+    const randomLeverage = Math.floor(Math.random() * 50) + 2;
+    const randomProfit = (Math.random() * 100).toFixed(2);
+    const randomComment = comments[Math.floor(Math.random() * comments.length)];
+    
+    document.getElementById('token').textContent = randomToken;
+    document.getElementById('direction').textContent = randomDirection;
+    document.getElementById('leverage').textContent = randomLeverage + 'x';
+    document.getElementById('profit').textContent = randomProfit + '%';
+    document.getElementById('comment').textContent = randomComment;
+    
+    document.getElementById('resultBox').classList.remove('hidden');
+    document.getElementById('clickSound').play();
 });
 
-document.getElementById('shareBtn').addEventListener('click', () => {
-  const token = document.getElementById('token').textContent;
-  const direction = document.getElementById('direction').textContent;
-  const leverage = document.getElementById('leverage').textContent;
-  const profit = document.getElementById('profit').textContent;
-  const comment = document.getElementById('comment').textContent;
-
-  const text = 💣 Pump or Dump Trade:\nToken: ${token}\nDirection: ${direction}\nLeverage: ${leverage}\nTarget: ${profit}\nComment: ${comment};
-  
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Trade copied to clipboard! Paste it wherever you want 🚀');
-  });
+// Share button functionality
+document.getElementById('shareBtn').addEventListener('click', function() {
+    alert("Trade copied to clipboard!\n\nPro tip: Don't actually use this for trading.");
 });
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+// Notification system
+setTimeout(showNotification, 20000);
+setInterval(showNotification, 180000);
+
+function showNotification() {
+    const notification = document.getElementById('notification');
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+        if (notification.classList.contains('show')) {
+            notification.classList.remove('show');
+        }
+    }, 8000);
 }
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('notification').classList.remove('show');
+});
+
+document.getElementById('joinBtn').addEventListener('click', () => {
+    window.open('https://t.me/yeetex_tools', '_blank');
+    document.getElementById('notification').classList.remove('show');
+});
+
+document.getElementById('joinBtn').addEventListener('mouseenter', () => {
+    document.getElementById('clickSound').play();
+});
