@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump or Dump</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Pump or Dump</h1>
+        <p class="disclaimer">This is a <strong>fun</strong> crypto trading advisor. Do NOT use this for real trading. Seriously.</p>
+        <button id="generateBtn">Click for a Random Trade</button>
+        
+        <div id="resultBox" class="hidden">
+            <h2>Your Trade:</h2>
+            <p><strong>Token:</strong> <span id="token"></span></p>
+            <p><strong>Direction:</strong> <span id="direction"></span></p>
+            <p><strong>Leverage:</strong> <span id="leverage"></span></p>
+            <p><strong>Target Profit:</strong> <span id="profit"></span></p>
+            <p class="comment" id="comment"></p>
+            <button id="shareBtn">📤 Share this trade</button>
+        </div>
+
+        <div class="donate">
+            <h3>Support the Madness</h3>
+            <p><strong>USDT (TRC20):</strong> TENut1mWcGEqD2Dddc8AnVWtWqm57ZHdFq</p>
+            <p><strong>BTC:</strong> bc1qtnn33mafmslt7kww2xg9ksk2424392h37wnp2f</p>
+            <p><strong>ETH:</strong> 0xbDAc8C1Fb4De50dF158897E4A0Af022f85695e99</p>
+        </div>
+    </div>
+
+    <audio id="clickSound" src="sounds/click.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
